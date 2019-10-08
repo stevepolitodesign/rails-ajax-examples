@@ -1,3 +1,9 @@
+# Rails AJAX Examples
+
+Work in progress.
+
+---
+
 # Set Up
 
 1. `bundle install`
