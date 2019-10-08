@@ -21,8 +21,12 @@ RSpec.describe Post, type: :model do
   end
 
   describe "comment associations" do
+    let!(:comment) { FactoryBot.create(:comment) }
     it "can have many comments" do
       expect(Post.reflect_on_association(:comments).macro).to eq(:has_many)
+    end
+    it "deletes associated comments" do
+      expect { comment.post.destroy }.to change { Comment.count }.by(-1)
     end
   end
 
