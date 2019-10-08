@@ -1,24 +1,12 @@
-# README
+# Set Up
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. `bundle install`
+2. `rails db:create`
 
-Things you may want to cover:
+# Testing
 
-* Ruby version
+1. `rspec`
 
-* System dependencies
+# Specs
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. `rspec -f d`
