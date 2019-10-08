@@ -1,0 +1,3 @@
+<h1>Edit <%= @author.formatted_name %></h1>
+<%= render 'form' %>
+<%= link_to "Delete #{@author.formatted_name}", author_path(@author), method: :delete, data: { confirm: "Are you sure?" } %>
