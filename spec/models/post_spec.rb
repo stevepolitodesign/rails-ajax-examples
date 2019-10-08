@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
+  
   describe "creation" do
     let(:post) { FactoryBot.create(:post) }
     it "can be created" do
