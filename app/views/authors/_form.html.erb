@@ -1,5 +1,5 @@
 <%= form_with model: @author do |f| %>
-    <%= render 'shared/validation-messages', object: @author %>
+    <%= render 'shared/validation-messages', object: f.object %>
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
     <%= f.label :last_name %>
