@@ -20,8 +20,15 @@ RSpec.feature "PostFlows", type: :feature do
 
   describe "post show page" do
     let!(:post) { FactoryBot.create(:post) }
-    pending "displays the post's content and author"
-    pending "displays a link to the edit page"
+    it "displays the post's content andauthor" do
+      visit post_path(post)
+      expect(page).to have_content(post.body)
+      expect(page).to have_link(post.author.formatted_name, href: author_path(post.author))
+    end
+    it "displays a link to the edit page" do
+      visit post_path(post)
+      expect(page).to have_link("Edit Post", href: edit_post_path(post))
+    end
   end
 
   describe "post new page" do
