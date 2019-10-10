@@ -52,8 +52,17 @@ RSpec.feature "PostFlows", type: :feature do
 
   describe "post edit page" do
     let!(:post) { FactoryBot.create(:post) }
-    pending "displays a form to edit the post"
-    pending "has a button to delete the post"
+    it "displays a form to edit the post" do
+      visit edit_post_path(post)
+      fill_in("Title", with: "new title")
+      click_button("Update Post")
+      expect(page).to have_content("new title was successfully updated.")
+    end
+    it "has a button to delete the post" do
+      visit edit_post_path(post)
+      click_link("Delete Post", href: post_path(post))
+      expect(page).to have_content("#{post.title} was successfully deleted.")
+    end
   end
 
 end

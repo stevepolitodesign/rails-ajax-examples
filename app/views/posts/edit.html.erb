@@ -1,0 +1,3 @@
+<h1>Edit <%= @post.title %></h1>
+<%= render "form" %>
+<%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
