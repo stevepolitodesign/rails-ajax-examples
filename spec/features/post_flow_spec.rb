@@ -32,8 +32,22 @@ RSpec.feature "PostFlows", type: :feature do
   end
 
   describe "post new page" do
-    pending "displays a form to add a new post"
-    pending "renders reasons why form did not save"
+    let!(:author) { FactoryBot.create(:author) }
+    it "displays a form to add a new post" do
+      visit new_post_path
+      fill_in("Title", with: "here is my title")
+      fill_in("Body", with: "here is my post")
+      select("#{author.formatted_name}", from: "Author")
+      click_button("Create Post")
+      expect(page).to have_content("#{Post.last.title} was successfully saved.")
+      expect(page).to have_current_path(post_path(Post.last))
+    end
+    it "renders reasons why form did not save" do
+      visit new_post_path
+      fill_in("Title", with: "")
+      click_button("Create Post")
+      expect(page).to have_content("prohibited this post from being saved:")
+    end
   end
 
   describe "post edit page" do

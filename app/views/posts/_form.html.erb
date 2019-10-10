@@ -1,0 +1,10 @@
+<%= form_with model: @post do |f| %>
+    <%= render "shared/validation-messages", object: f.object %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+    <%= f.label :author_id, "Author" %>
+    <%= f.collection_select(:author_id, Author.all, :id, :formatted_name) %>
+    <%= f.submit %>
+<% end %>
