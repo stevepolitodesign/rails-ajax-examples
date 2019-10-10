@@ -1,0 +1,5 @@
+<h3><%= post.title %></h3>
+<p>By: <%= link_to post.author.formatted_name, author_path(post.author) %></p>
+<%= post_excerpt(post) %>
+<%= link_to "Read More", post_path(post) %>
+<hr/>
