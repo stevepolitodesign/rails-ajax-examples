@@ -56,6 +56,13 @@ RSpec.configure do |config|
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
+  
+  # Needed to load this in order for my feature test to use the truncate method provided by Rails
+  config.include ActionView::Helpers::TextHelper
+  
+  # Load Custom Helpers
+  config.include PostHelper
+
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
