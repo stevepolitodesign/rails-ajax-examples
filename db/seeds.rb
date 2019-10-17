@@ -13,14 +13,14 @@ end
 
 Author.all.each do |author|
     10.times do |i|
-        @post = author.posts.create!(title: Faker::Lorem.sentence, body: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4))
+        @post = author.posts.create!(title: Faker::Lorem.sentence, body: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4), created_at: Time.now - rand(356).days)
         puts "Post Created: #{@post.title}"
     end
 end
 
 Post.all.each do |post|
     5.times do |i|
-        @comment = post.comments.create!(body: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4))
+        @comment = post.comments.create!(body: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4), created_at: Time.now - rand(356).days)
         puts "Comment Created: #{@comment.body}"
     end
 end
