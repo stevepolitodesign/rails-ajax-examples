@@ -9,7 +9,7 @@ var commentsWrapper = document.querySelector('#comments');
 // Otherwise you'll get `SyntaxError: redeclaration of let comment` on the next form submission
 // TODO: I need to research why `render @comment` works. I _think_ it's because this file is
 // in the same directory as the `_comment.html.erb` partial. 
-let comment = "<%= escape_javascript(render @comment) %>";
+var comment = "<%= escape_javascript(render @comment) %>";
 
 // Append the comment
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML
