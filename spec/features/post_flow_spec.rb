@@ -3,24 +3,25 @@ require 'rails_helper'
 RSpec.feature "PostFlows", type: :feature do
 
   describe "post index page" do
-    let!(:post_one) { FactoryBot.create(:post) }
-    let!(:post_two) { FactoryBot.create(:post) }
-    it "displays a list of posts" do
+    let!(:old_post) { FactoryBot.create(:post, title: "Old Post", created_at: Time.now - 1.year) }
+    let!(:new_post) { FactoryBot.create(:post, title: "New Post", created_at: Time.now) }
+    it "displays a list of posts from newest to oldest" do
       visit posts_path
-      expect(page).to have_content(post_one.title)
-      expect(page).to have_content(post_excerpt(post_one))
-      expect(page).to have_link(post_one.author.formatted_name, href: author_path(post_one.author))
-      expect(page).to have_link("Read More", href: post_path(post_one))
-      expect(page).to have_content(post_two.title)
-      expect(page).to have_content(post_excerpt(post_two))
-      expect(page).to have_link(post_two.author.formatted_name, href: author_path(post_two.author))
-      expect(page).to have_link("Read More", href: post_path(post_two))      
+      Post.all.each do |post|
+        expect(page).to have_content(post.title)
+        expect(page).to have_content("#{time_ago_in_words(post.created_at)} ago.")
+        expect(page).to have_content(post_excerpt(post))
+        expect(page).to have_link(post.author.formatted_name, href: author_path(post.author))
+        expect(page).to have_link("Read More", href: post_path(post))
+      end
+      expect(find("#posts > .post:first-of-type")).to have_content(new_post.title)
+      expect(find("#posts > .post:nth-child(2)")).to have_content(old_post.title)
     end
   end
 
   describe "post show page" do
     let!(:post) { FactoryBot.create(:post) }
-    it "displays the post's content andauthor" do
+    it "displays the post's content and author" do
       visit post_path(post)
       expect(page).to have_content(post.body)
       expect(page).to have_link(post.author.formatted_name, href: author_path(post.author))

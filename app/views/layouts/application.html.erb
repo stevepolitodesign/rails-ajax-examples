@@ -10,14 +10,16 @@
   </head>
 
   <body>
-    <%= render 'shared/flash' %>
-    <%= yield %>
-    <% if Rails.env.development? %>
-      <pre class="card bg-light">
-        <code>
-          <%= debug(params) %>
-        </code>
-      </pre>
-    <% end %>
+    <div class="container">
+        <%= render 'shared/flash' %>
+        <%= yield %>
+        <% if Rails.env.development? %>
+          <pre>
+            <code>
+              <%= debug(params) %>
+            </code>
+          </pre>
+        <% end %>
+    </div>
   </body>
 </html>
