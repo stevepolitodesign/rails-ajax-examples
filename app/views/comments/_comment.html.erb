@@ -1,0 +1,5 @@
+<div class="comment comment-<%= comment.id%>">
+    <p><%= comment.body %></p>
+    <%= link_to "Edit Comment", edit_comment_path(comment) %>
+    <%= link_to "Delete Comment", comment_path(comment), method: :delete, data: { confirm: "Are you sure?" } %>
+</div>

@@ -1,4 +1,8 @@
 <h1><%= @post.title %></h1>
 <p>By: <%= link_to @post.author.formatted_name, author_path(@post.author) %></p>
 <%= @post.body %>
+<h2>Comments:</h2>
+<%= render @post.comments %>
+<h2>Add A Comment:</h2>
+<%= render "comment_form" %>
 <%= link_to "Edit Post", edit_post_path(@post) %>
