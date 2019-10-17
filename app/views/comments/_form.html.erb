@@ -1,5 +1,6 @@
-<%= form_with model: @comment, local: true do |f| %>
-    <%= render "shared/validation-messages", object: f.object %>
+<%# NOTE I assign the form an ID of "comments-form" so that I can select the form when using javascript in `app/views/comments/create.js.erb` %>
+<%= form_with model:[@post, @comment], id: "comments-form" do |f| %>
+    <%# TODO handle errors %>
     <%= f.label :body %>
     <%= f.text_area :body %>
     <%= f.submit %>

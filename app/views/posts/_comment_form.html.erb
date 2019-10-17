@@ -1,7 +1,0 @@
-<%# TODO see if I can just use the `app/views/comments/_form.html.erb` partial %>
-<%= form_with model: [ @post, @post.comments.build ], id: "comments-form" do |f| %>
-    <%# TODO handle errors %>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-    <%= f.submit %>
-<% end  %>
