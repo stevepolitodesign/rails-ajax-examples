@@ -1,5 +1,5 @@
 <%# TODO I need to research why `render @comment` works. I _think_ it's because this file is in the same directory as the `_comment.html.erb` partial. %>
 <%# TODO Make this a class? %>
 
-document.querySelector('#comments').insertAdjacentHTML('afterend', '<%= escape_javascript(render @comment) %>');
+document.querySelector('#comments').insertAdjacentHTML('beforeend', '<%= escape_javascript(render @comment) %>');
 document.querySelector('#comments-form').reset();
