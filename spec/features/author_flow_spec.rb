@@ -7,8 +7,9 @@ RSpec.feature "AuthorFlows", type: :feature do
     let!(:author_two) { FactoryBot.create(:author) }
     it "displays a list of authors" do
       visit authors_path
-      expect(page).to have_link("#{author_one.formatted_name}", href: author_path(author_one) )
-      expect(page).to have_link("#{author_two.formatted_name}", href: author_path(author_two) )
+      Author.all.each do |author|
+        expect(page).to have_link("#{author.formatted_name}", href: author_path(author) )
+      end      
     end
   end
 
