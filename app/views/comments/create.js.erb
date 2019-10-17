@@ -1,0 +1,16 @@
+// There is a <div id="comments"> in app/views/posts/show.html.erb.
+// Since the page does not refresh, we need to use `var` and not `const` or `let`
+// Otherwise you'll get `SyntaxError: redeclaration of const commentsWrapper` on the next form submission
+var commentsWrapper = document.querySelector('#comments');
+
+// Save the comment markup into a variable
+// `render @comment` is will be evaluated since this file is .js.erb
+// Since the page does not refresh, we need to use `var` and not `const` or `let`
+// Otherwise you'll get `SyntaxError: redeclaration of let comment` on the next form submission
+// TODO: I need to research why `render @comment` works. I _think_ it's because this file is
+// in the same directory as the `_comment.html.erb` partial. 
+let comment = "<%= escape_javascript(render @comment) %>";
+
+// Append the comment
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML
+commentsWrapper.insertAdjacentHTML('afterend', comment);

@@ -4,7 +4,11 @@ class CommentsController < ApplicationController
 
     def create
         @comment = @post.comments.create(comment_params)
-        redirect_to @post
+        respond_to do |format|
+            format.html { redirect_to @post, notice: 'Comment was successfully created.' }
+            format.js
+            format.json { render json: @comment, status: :created, location: @comment }
+        end
     end
 
     def edit
