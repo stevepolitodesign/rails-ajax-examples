@@ -5,7 +5,7 @@
 <%= render "comments/form" %>
 <%# TODO Reverse sort %>
 <h2>Comments:</h2>
-<%# NOTE I wrap the comments in "<div id="comments">" so that I can select the wrapper when using javascript in `app/views/comments/create.js.erb` %>
+<%# NOTE I wrap the comments in `<div id="comments">`` so that I can select the wrapper when using javascript in `app/views/comments/create.js.erb`. %>
 <div id="comments">
     <%= render @post.comments %>
 </div>

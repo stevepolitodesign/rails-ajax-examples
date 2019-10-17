@@ -15,7 +15,11 @@ Work in progress.
 1. `bundle install`
 2. `rails db:create`
 
-# Testing
+# Notes
+
+1. `rails notes -a=NOTE`
+
+# Tests
 
 1. `rspec`
 
