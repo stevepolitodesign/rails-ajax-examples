@@ -14,3 +14,7 @@ let comment = "<%= escape_javascript(render @comment) %>";
 // Append the comment
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML
 commentsWrapper.insertAdjacentHTML('afterend', comment);
+
+// Clear the form
+var commentsForm = document.querySelector('#comments-form')
+commentsForm.reset();
