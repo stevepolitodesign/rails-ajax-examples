@@ -1,5 +1,8 @@
-<div class="comment comment-<%= comment.id%>">
+<div class="py-3 border-bottom comment comment-<%= comment.id%>">
+    <small class="text-secondary border-bottom">Posted <%= time_ago_in_words(comment.created_at) %> ago.</small>
     <p><%= comment.body %></p>
-    <%= link_to "Edit Comment", edit_post_comment_path(comment.post, comment) %>
-    <%= link_to "Delete Comment", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+    <div class="btn-group">
+        <%= link_to "Edit Comment", edit_post_comment_path(comment.post, comment), class: "btn btn-sm btn-outline-primary" %>
+        <%= link_to "Delete Comment", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-outline-danger" %>
+    </div>
 </div>

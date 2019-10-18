@@ -3,10 +3,11 @@ require 'rails_helper'
 RSpec.feature "CommentFlows", type: :feature do
   describe "post comments" do
     let!(:post_with_comments) { FactoryBot.create(:post_with_comments) }
-    it "lists comments on an associated post's show page" do
+    it "lists comments in descending order on an associated post's show page" do
       visit post_path(post_with_comments)
-      post_with_comments.comments.each do |comment|
+      post_with_comments.comments.each_with_index do |comment, index|
         expect(page).to have_content(comment.body)
+        expect(find("#comments > .comment:nth-child(#{index+1})")).to have_content(comment.body)
       end
     end
   end

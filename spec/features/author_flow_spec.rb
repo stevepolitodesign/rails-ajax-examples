@@ -15,6 +15,7 @@ RSpec.feature "AuthorFlows", type: :feature do
 
   describe "author show page" do
     let!(:author) { FactoryBot.create(:author) }
+    let!(:author_with_posts) { FactoryBot.create(:author_with_posts) }
     it "displays the author's formatted name" do
       visit author_path(author)
       expect(page).to have_content("#{author.formatted_name}")
@@ -22,6 +23,17 @@ RSpec.feature "AuthorFlows", type: :feature do
     it "displays a link to the edit page" do
       visit author_path(author)
       expect(page).to have_link("Edit Author", href: edit_author_path(author))
+    end
+    it "displays a list of associated posts in descending order" do
+      visit author_path(author_with_posts)
+      author_with_posts.posts.each_with_index do |post, index|
+        expect(page).to have_content(post.title)
+        expect(page).to have_content("#{time_ago_in_words(post.created_at)} ago.")
+        expect(page).to have_content(post_excerpt(post))
+        expect(page).to have_link(post.author.formatted_name, href: author_path(post.author))
+        expect(page).to have_link("Read More", href: post_path(post))
+        expect(find("#posts > .post:nth-child(#{index+1})")).to have_content(post.title)
+      end
     end
   end
 

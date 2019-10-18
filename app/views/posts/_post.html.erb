@@ -1,6 +1,6 @@
 <article class="py-3 border-bottom post post-<%= post.id %>">
     <h3><%= post.title %></h3>
-    <span class="badge badge-light">Posted by: <%= link_to post.author.formatted_name, author_path(post.author) %> <%= time_ago_in_words(post.created_at) %> ago.</span>
+    <small class="text-secondary border-bottom">Posted by: <%= link_to post.author.formatted_name, author_path(post.author) %> <%= time_ago_in_words(post.created_at) %> ago.</small>
     <p><%= post_excerpt(post) %></p>
     <%= link_to "Read More", post_path(post), class: "btn btn-outline-primary btn-sm" %>
 </article>

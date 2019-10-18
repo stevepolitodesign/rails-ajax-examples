@@ -1,10 +1,9 @@
 <h1><%= @post.title %></h1>
-<p>By: <%= link_to @post.author.formatted_name, author_path(@post.author) %></p>
-<%= @post.body %>
-<h2>Add A Comment:</h2>
+<small class="text-secondary border-bottom">Posted by: <%= link_to @post.author.formatted_name, author_path(@post.author) %> <%= time_ago_in_words(@post.created_at) %> ago.</small>
+<p><%= @post.body %></p>
+<h4>Add A Comment:</h4>
 <%= render "comments/form" %>
-<%# TODO Reverse sort %>
-<h2>Comments:</h2>
+<h4>Comments:</h4>
 <%# NOTE I wrap the comments in `<div id="comments">`` so that I can select the wrapper when using javascript in `app/views/comments/create.js.erb`. %>
 <div id="comments">
     <%= render @post.comments %>
