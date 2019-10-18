@@ -1,5 +1,6 @@
 <%# NOTE I assign the form an ID of `comments-form` so that I can select the form when using javascript in `app/views/comments/create.js.erb`. %>
 <%# NOTE We do not add `local: true` to the form. This is was enables AJAX. %>
+<%# TODO style %>
 <%= form_with model:[@post, @comment], id: "comments-form" do |f| %>
     <%# TODO handle errors %>
     <%= f.label :body %>
