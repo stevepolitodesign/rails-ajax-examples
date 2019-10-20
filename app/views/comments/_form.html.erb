@@ -2,7 +2,6 @@
 <%# NOTE We do not add `local: true` to the form. This is was enables AJAX. %>
 <%# TODO style %>
 <%= form_with model:[@post, @comment], id: "comments-form" do |f| %>
-    <%# TODO handle errors %>
     <%= f.label :body %>
     <%= f.text_area :body %>
     <%= f.submit %>
