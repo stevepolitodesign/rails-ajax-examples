@@ -34,6 +34,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
   gem 'capybara', '~> 3.29'
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
+  # NOTE this is needed for tests with `js: true`
+  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.6'
 end
 
 group :development do

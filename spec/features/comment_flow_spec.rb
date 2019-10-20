@@ -49,6 +49,12 @@ RSpec.feature "CommentFlows", type: :feature do
       expect(page).to have_content(comment_body)
       expect(page).to have_css(".comment.comment-#{Comment.last.id}")
     end
+    it "displays errors messages if the comment is not valid" do
+      visit post_path(post)
+      fill_in("Body", with: "")
+      click_button("Create Comment")
+      expect(page).to have_content("prohibited this comment from being saved:")
+    end
   end
 
 end
