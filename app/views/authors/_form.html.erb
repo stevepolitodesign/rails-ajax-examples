@@ -1,9 +1,12 @@
 <%# TODO style %>
-<%= form_with model: @author, local: true do |f| %>
-    <%= render 'shared/validation-messages', object: f.object %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-    <%= f.submit %>
+<%# NOTE conditionally load an AJAX version of the form  %>
+<% if  params[:controller] === 'posts' %>
+    <%= form_with model: @author  do |f| %>
+        <%= render 'authors/form-fields', f: f %>
+    <% end %>
+<% else %>
+    <%= form_with model: @author, local: true  do |f| %>
+        <%= render 'shared/validation-messages', object: f.object %>
+        <%= render 'authors/form-fields', f: f %>
+    <% end %>
 <% end %>

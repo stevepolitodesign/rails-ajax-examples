@@ -14,6 +14,8 @@ class PostsController < ApplicationController
 
     def new
         @post = Post.new
+        # NOTE this is needed for the new author form to work in `app/views/posts/show.html.erb`.
+        @author = Author.new
     end
 
     def create

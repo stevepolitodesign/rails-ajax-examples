@@ -1,0 +1,4 @@
+<%  if @author.errors.any? %>
+<%  else %>
+    document.querySelector('select#post_author_id').prepend('<option value="<%= @author.id %>"><%= @author.formatted_name %></option>');
+<%  end %>

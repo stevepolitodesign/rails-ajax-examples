@@ -75,4 +75,16 @@ RSpec.feature "AuthorFlows", type: :feature do
     end
   end
 
+  # NOTE added `js: true` to ensure that the selenium driver uses javascript.   
+  describe "author creation on new post page", js: true do
+    let!(:post) { FactoryBot.create(:post) }
+    it "has a form to dynamically add a new author" do
+      visit new_post_path
+      fill_in("First name", with: "Lindsey")
+      fill_in("Last name", with: "Booth")
+      click_button("Create Author")
+      expect(find("select#post_author_id")).to have_content("Lindsey Booth")
+    end
+  end
+
 end

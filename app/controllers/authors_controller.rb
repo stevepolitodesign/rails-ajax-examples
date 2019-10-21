@@ -14,11 +14,15 @@ class AuthorsController < ApplicationController
     end
 
     def create
-        @author = Author.create(author_params)
-        if @author.save
-            redirect_to @author, notice: "#{@author.formatted_name} was successfully saved."
-        else
-            render 'new'
+        @author = Author.create(author_params)        
+        respond_to do |format|
+            if @author.save
+                format.html { redirect_to @author, notice: "#{@author.formatted_name} was successfully saved." }
+                format.js
+            else
+                format.html { render 'new' }
+                format.js
+            end
         end
     end
 
