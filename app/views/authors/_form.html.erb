@@ -1,7 +1,7 @@
 <%# TODO style %>
 <%# NOTE conditionally load an AJAX version of the form  %>
-<% if  params[:controller] === 'posts' %>
-    <%= form_with model: @author  do |f| %>
+<% if params[:controller] === 'posts' %>
+    <%= form_with model: @author, id: "author_form" do |f| %>
         <%= render 'authors/form-fields', f: f %>
     <% end %>
 <% else %>

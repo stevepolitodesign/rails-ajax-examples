@@ -1,4 +1,12 @@
 <%  if @author.errors.any? %>
+    if (document.querySelector('#error_explanation')) {
+        document.querySelector('#error_explanation').remove();
+    }
+    document.querySelector('#author_form').insertAdjacentHTML('afterbegin', '<%= escape_javascript(render "shared/validation-messages", object: @author) %>');
 <%  else %>
-    document.querySelector('select#post_author_id').prepend('<option value="<%= @author.id %>"><%= @author.formatted_name %></option>');
+    if (document.querySelector('#error_explanation')) {
+        document.querySelector('#error_explanation').remove();
+    }
+    document.querySelector('select#post_author_id').insertAdjacentHTML('afterbegin', '<option value="<%= @author.id %>" selected="selected" ><%= @author.formatted_name %></option>') ;
+    document.querySelector('#author_form').reset();
 <%  end %>

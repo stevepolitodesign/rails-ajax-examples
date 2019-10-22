@@ -83,7 +83,14 @@ RSpec.feature "AuthorFlows", type: :feature do
       fill_in("First name", with: "Lindsey")
       fill_in("Last name", with: "Booth")
       click_button("Create Author")
-      expect(find("select#post_author_id")).to have_content("Lindsey Booth")
+      expect(find("select#post_author_id option[selected='selected']")).to have_content("Lindsey Booth")
+    end
+    it "renders errors on the author creation form if author is invalid" do
+      visit new_post_path
+      fill_in("First name", with: "")
+      fill_in("Last name", with: "")
+      click_button("Create Author")
+      expect(page).to have_content("prohibited this author from being saved:")
     end
   end
 
