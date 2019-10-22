@@ -77,7 +77,6 @@ RSpec.feature "AuthorFlows", type: :feature do
 
   # NOTE added `js: true` to ensure that the selenium driver uses javascript.   
   describe "author creation on new post page", js: true do
-    let!(:post) { FactoryBot.create(:post) }
     it "has a form to dynamically add a new author" do
       visit new_post_path
       fill_in("First name", with: "Lindsey")
@@ -93,5 +92,23 @@ RSpec.feature "AuthorFlows", type: :feature do
       expect(page).to have_content("prohibited this author from being saved:")
     end
   end
+
+  describe "author creation on edit post page", js: true do
+    let!(:post) { FactoryBot.create(:post) }
+    it "has a form to dynamically add a new author" do
+      visit edit_post_path(post)
+      fill_in("First name", with: "New")
+      fill_in("Last name", with: "Author")
+      click_button("Create Author")
+      expect(find("select#post_author_id option[selected='selected']")).to have_content("New Author")
+    end
+    it "renders errors on the author creation form if author is invalid" do
+      visit edit_post_path(post)
+      fill_in("First name", with: "")
+      fill_in("Last name", with: "")
+      click_button("Create Author")
+      expect(page).to have_content("prohibited this author from being saved:")
+    end
+  end  
 
 end

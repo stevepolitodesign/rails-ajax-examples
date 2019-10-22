@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
 
     before_action :set_post, only: [:show, :edit, :update, :destroy]
+    # NOTE this is needed for the new author form to work in `app/views/posts/new.html.erb` and ``app/views/posts/edit.html.erb`` 
+    before_action :new_author, only: [:new, :edit]
 
     def index
         @posts = Post.all
@@ -14,8 +16,6 @@ class PostsController < ApplicationController
 
     def new
         @post = Post.new
-        # NOTE this is needed for the new author form to work in `app/views/posts/show.html.erb`.
-        @author = Author.new
     end
 
     def create
@@ -51,6 +51,10 @@ class PostsController < ApplicationController
 
         def post_params
             params.require(:post).permit(:title, :body, :author_id)
+        end
+
+        def new_author
+            @author = Author.new
         end
 
 end
