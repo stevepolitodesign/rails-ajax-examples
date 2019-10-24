@@ -1,0 +1,7 @@
+.field_with_errors {
+    color: $danger;
+    
+    > * {
+        border-color: $danger;
+    }
+}
