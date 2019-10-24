@@ -1,6 +1,5 @@
-<%# TODO style %>
 <% if object.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger" role="alert">
         <h2><%= pluralize(object.errors.count, "error") %> prohibited this <%= "#{object.class.name.downcase}" %> from being saved:</h2>
         <ul>
             <% object.errors.full_messages.each do |msg| %>
