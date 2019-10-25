@@ -1,11 +1,27 @@
-<h1><%= @post.title %></h1>
-<small class="text-secondary border-bottom">Posted by: <%= link_to @post.author.formatted_name, author_path(@post.author) %> <%= time_ago_in_words(@post.created_at) %> ago.</small>
-<p><%= @post.body %></p>
-<h4>Add A Comment:</h4>
-<%= render "comments/form" %>
-<h4>Comments:</h4>
-<%# NOTE I wrap the comments in `<div id="comments">`` so that I can select the wrapper when using javascript in `app/views/comments/create.js.erb`. %>
-<div id="comments" class="pb-5">
-    <%= render @post.comments %>
+<div class="card mb-3">
+    <div class="card-header">
+        <h1 class="mb-0"><%= @post.title %></h1>
+    </div>
+    <div class="card-body">
+        <small class="d-inline-block mb-3 text-secondary border-bottom">Posted by: <%= link_to @post.author.formatted_name, author_path(@post.author) %> <%= time_ago_in_words(@post.created_at) %> ago.</small>
+        <p><%= @post.body %></p>
+        <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-primary" %>
+    </div>
 </div>
-<%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-primary" %>
+<div class="card mb-3">
+    <div class="card-header">
+        <h4 class="mb-0">Add A Comment:</h4>
+    </div>
+    <div class="card-body">
+        <%= render "comments/form" %>
+    </div>
+</div>
+<div class="card mb-3">
+    <div class="card-header">
+        <h4>Comments:</h4>
+    </div>
+    <%# NOTE I wrap the comments in `<div id="comments">`` so that I can select the wrapper when using javascript in `app/views/comments/create.js.erb`. %>
+    <div id="comments" class="card-body">
+        <%= render @post.comments %>
+    </div>
+</div>

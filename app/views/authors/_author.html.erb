@@ -1,1 +1,8 @@
-<li><%= link_to author.formatted_name, author_path(author) %></li>
+<div class="card mb-3">
+    <div class="card-header">
+        <h3 class="mb-0"><%= author.formatted_name %></h3>
+    </div>
+    <div class="card-body">
+        <%= link_to "See Posts", author_path(author), class: "btn btn-outline-primary btn-sm" %>
+    </div>
+</div>

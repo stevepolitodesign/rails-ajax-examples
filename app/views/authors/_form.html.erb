@@ -1,6 +1,7 @@
-<%# TODO style %>
 <%# NOTE conditionally load an AJAX version of the form  %>
 <% if params[:controller] === 'posts' %>
+    <%# NOTE I assign the form an ID of `author_form` so that I can select the form when using javascript in `app/views/authors/create.js.erb`. %>
+    <%# NOTE We do not add `local: true` to the form. This is was enables AJAX. %>
     <%= form_with model: @author, id: "author_form" do |f| %>
         <%= render 'authors/form-fields', f: f %>
     <% end %>

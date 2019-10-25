@@ -1,5 +1,20 @@
-<h1>Edit <%= @post.title %></h1>
-<%= render "form" %>
-<%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-<hr/>
-<%= render "authors/form" %>
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="mb-0">Edit <%= @post.title %></h1>
+            </div>
+            <div class="card-body">
+                <%= render "form" %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Quickly add an Author using the form below.</h3>
+                <%= render "authors/form" %>
+            </div>
+        </div>
+    </div>    
+<div>

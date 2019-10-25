@@ -12,5 +12,11 @@
         <%= f.label :author_id, "Author" %>
         <%= f.collection_select(:author_id, Author.all, :id, :formatted_name, {}, { class: "form-control" }) %>
     </div>
-    <%= f.submit class: "btn btn-success" %>
+    <div class="btn-group">
+        <%= f.submit class: "btn btn-success" %>
+        <%# NOTE only show the delete button on the edit page. Otherwise it would appear when adding a new post %>
+        <% if params[:action] == 'edit' %>
+            <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"  %>
+        <% end %>
+    </div>
 <% end %>

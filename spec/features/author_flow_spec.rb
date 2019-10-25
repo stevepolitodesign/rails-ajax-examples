@@ -8,7 +8,8 @@ RSpec.feature "AuthorFlows", type: :feature do
     it "displays a list of authors" do
       visit authors_path
       Author.all.each do |author|
-        expect(page).to have_link("#{author.formatted_name}", href: author_path(author) )
+        expect(page).to have_content(author.formatted_name)
+        expect(page).to have_link("See Posts", href: author_path(author) )
       end      
     end
   end

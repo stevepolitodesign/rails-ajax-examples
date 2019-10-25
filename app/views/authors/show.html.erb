@@ -1,5 +1,11 @@
-<h1>Posts by <%= @author.formatted_name %></h1>
+<div class="card mb-3">
+    <div class="card-header">
+        <h1 class="mb-0">Posts by <%= @author.formatted_name %></h1>
+    </div>
+    <div class="card-body">
+        <%= link_to "Edit Author", edit_author_path(@author), class: "btn btn-primary" %>
+    </div>
+</div>
 <div id="posts" class="pb-5">
     <%= render @author.posts %>
 </div>
-<%= link_to "Edit Author", edit_author_path(@author), class: "btn btn-primary" %>
