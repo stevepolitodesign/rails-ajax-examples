@@ -1,10 +1,11 @@
-<%# NOTE COMMENT Conditionally load an AJAX version of the form when on `posts#show`. %>
+<%# NOTE COMMENT STEP 2: Conditionally load an AJAX version of the form when on `posts#show`. %>
 <% if params[:controller] === 'posts' %>
-    <%# NOTE COMMENT Assign the form an ID of `comments-form` so that you can select the form when using javascript in `app/views/comments/create.js.erb`. %>
-    <%# NOTE COMMENT Don't add `local: true` to this form. Otherwise, AJAX will not work. %>
+    <%# NOTE COMMENT STEP 2: Assign the form an ID of `comments-form` so that you can select the form when using javascript in `app/views/comments/create.js.erb`. %>
+    <%# NOTE COMMENT STEP 2: Don't add `local: true` to this form. Otherwise, AJAX will not work. %>
     <%= form_with model:[@post, @comment], id: "comments-form" do |f| %>
         <%= render 'comments/form-fields', f: f %>
     <% end  %>
+<%# NOTE COMMENT STEP 2: Conditionally load a non-AJAX version of the form when on `comments#edit`. %>
 <% else  %>
     <%= form_with model:[@post, @comment], local: true do |f| %>
         <%= render "shared/validation-messages", object: f.object %>

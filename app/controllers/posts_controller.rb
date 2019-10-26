@@ -9,8 +9,8 @@ class PostsController < ApplicationController
     end
 
     def show
-        # NOTE COMMENT This is needed in order for `app/views/comments/_form.html.erb` to use `@comment`.
-        # NOTE COMMENT Using `@comment = @post.comments.build` did not work. This was becuase `<%= render "comments/form" %>` was being rendered before `<%= render @post.comments %>` in `app/views/posts/show.html.erb`.
+        # NOTE COMMENT STEP 2: This is needed in order for `app/views/comments/_form.html.erb` to use `@comment`.
+        # NOTE COMMENT STEP 2: Using `@comment = @post.comments.build` did not work. This was becuase `<%= render "comments/form" %>` was being rendered before `<%= render @post.comments %>` in `app/views/posts/show.html.erb`.
         @comment = Comment.new(post: @post)
     end
 
