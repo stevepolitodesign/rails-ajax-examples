@@ -1,15 +1,15 @@
 <%  if @author.errors.any? %>
-    <%# NOTE AUTHOR This removes any error messages that were previously generated. %>
+    <%# NOTE AUTHOR STEP 4: This removes any error messages that were previously generated. %>
     document.querySelector('#error_explanation') ? document.querySelector('#error_explanation').remove() : null ;
-    <%# NOTE AUTHOR This selects the new author `<form>` in `app/views/posts/new.html.erb` and `app/views/posts/edit.html.erb` and dynamically injects the `app/views/shared/_validation-messages.html.erb` partial. %>
+    <%# NOTE AUTHOR STEP 4: This selects the new author `<form>` in `app/views/posts/new.html.erb` and `app/views/posts/edit.html.erb` and dynamically injects the `app/views/shared/_validation-messages.html.erb` partial. %>
     document.querySelector('#author_form').insertAdjacentHTML('afterbegin', '<%= escape_javascript(render "shared/validation-messages", object: @author) %>');
 <%  else %>
-    <%# NOTE AUTHOR This removes any error messages that were previously generated. %>
+    <%# NOTE AUTHOR STEP 4: This removes any error messages that were previously generated. %>
     document.querySelector('#error_explanation') ? document.querySelector('#error_explanation').remove() : null ;
-    <%# NOTE AUTHOR This searches for the currently selected author in `app/views/posts/new.html.erb` and `app/views/posts/edit.html.erb`, and unselects them. %>
+    <%# NOTE AUTHOR STEP 4: This searches for the currently selected author in `app/views/posts/new.html.erb` and `app/views/posts/edit.html.erb`, and unselects them. %>
     document.querySelector("select#post_author_id option[selected='selected']") ? document.querySelector("select#post_author_id option[selected='selected']").removeAttribute('selected') : null ;
-    <%# NOTE AUTHOR This dynamically adds the newly created author into the author select list, and sets them to be selected. %>
+    <%# NOTE AUTHOR STEP 4: This dynamically adds the newly created author into the author select list, and sets them to be selected. %>
     document.querySelector('select#post_author_id').insertAdjacentHTML('afterbegin', '<option value="<%= @author.id %>" selected="selected" ><%= @author.formatted_name %></option>') ;
-    <%# NOTE AUTHOR This selects the new author `<form>` in `app/views/posts/new.html.erb` and `app/views/posts/edit.html.erb` and resets the text area. %>
+    <%# NOTE AUTHOR STEP 4: This selects the new author `<form>` in `app/views/posts/new.html.erb` and `app/views/posts/edit.html.erb` and resets the text area. %>
     document.querySelector('#author_form').reset();
 <%  end %>

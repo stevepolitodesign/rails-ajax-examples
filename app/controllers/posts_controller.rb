@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
     before_action :set_post, only: [:show, :edit, :update, :destroy]
-    # NOTE AUTHOR This is needed for the new author form to work in `app/views/posts/new.html.erb` and `app/views/posts/edit.html.erb`.
+    # NOTE AUTHOR STEP 2: This is needed for the new author form to work in `app/views/posts/new.html.erb` and `app/views/posts/edit.html.erb`.
     before_action :new_author, only: [:new, :edit]
 
     def index
