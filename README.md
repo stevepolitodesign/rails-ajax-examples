@@ -1,27 +1,32 @@
 # Rails AJAX Examples
 
-Work in progress.
+An example Rails application that demonstrates how to use AJAX.
 
-## To Do
+## Example 1: Adding Comments Asynchronously
 
-- [ ] Style
-- [X] Refactor
-- [X] Create an example where a form does not use `local: true`
-- [X] Create an example where a user can add an `author` via AJAX while on the form for a `post`, which automatically will update the select list container `authors`.
-- [X] Create an example where a user can add a `comment` to a `post` via AJAX
+![Adding a comment via AJAX in Rails](./app/assets/images/adding_a_comment_via_ajax.gif)
+
+## Example 2: Adding Authors Asynchronously 
+
+![Adding an author via AJAX in Rails](./app/assets/images/adding_an_author_via_ajax.gif)
 
 ---
 
 # Set Up
 
 1. `bundle install`
-2. `rails db:create`
+2. `rails db:setup`
+3. `rails s`
 
 # Notes
+
+To see notes that specifically pertain to the examples, run the following command.
 
 1. `rails notes -a=NOTE`
 
 # Tests
+
+Because the application is testing AJAX, you'll need to have [Selenium Driver](https://github.com/teamcapybara/capybara#selenium) installed.
 
 1. `rspec`
 
