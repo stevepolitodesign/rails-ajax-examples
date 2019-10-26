@@ -8,19 +8,12 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <div class="container">
-      <%# TODO add navigation %>
-        <%= render 'shared/flash' %>
+  <body class="pb-5">
+      <%= render 'shared/header' %>
+      <%= render 'shared/flash' %>
+      <div class="container">
         <%= yield %>
-        <% if Rails.env.development? %>
-          <pre>
-            <code>
-              <%= debug(params) %>
-            </code>
-          </pre>
-        <% end %>
-    </div>
+      </div>
+      <%= render 'shared/debug' %>
   </body>
 </html>

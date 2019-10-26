@@ -1,4 +1,11 @@
-<h1 class="display-1">Posts</h1>
+<div class="card mb-5">
+    <div class="card-header">
+        <h1 class="mb-0">Posts</h1>
+    </div>
+    <div class="card-body">
+        <%= link_to "Add New Post", new_post_path, class: "btn btn-primary btn-large" %>
+    </div>
+</div>
 <section id="posts">
     <%= render @posts %>
 </section>

@@ -1,2 +1,9 @@
-<h1 class="display-1">Authors</h1>
+<div class="card mb-5">
+    <div class="card-header">
+        <h1 class="mb-0">Authors</h1>
+    </div>
+    <div class="card-body">
+        <%= link_to "Add New Author", new_author_path, class: "btn btn-primary btn-large" %>
+    </div>
+</div>
 <%= render @authors %>
