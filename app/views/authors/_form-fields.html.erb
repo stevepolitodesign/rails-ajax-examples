@@ -8,7 +8,7 @@
 </div>
 <div class="btn-group">
     <%= f.submit class: "btn btn-success" %>
-    <%# NOTE only load the delete button when editing an author. Otherwise the delete button will appear on the new post view and raise an exception. %>
+    <%# NOTE AUTHOR Only load the delete button when editing an author. Otherwise the delete button will appear on the new post view and raise an exception. %>
     <% if params[:action] == 'edit' && params[:controller] == 'authors' %>
         <%= link_to "Delete #{@author.formatted_name}", author_path(@author), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
     <% end %>

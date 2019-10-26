@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
     before_action :set_post, only: [:show, :edit, :update, :destroy]
-    # NOTE this is needed for the new author form to work in `app/views/posts/new.html.erb` and ``app/views/posts/edit.html.erb`` 
+    # NOTE AUTHOR This is needed for the new author form to work in `app/views/posts/new.html.erb` and `app/views/posts/edit.html.erb`.
     before_action :new_author, only: [:new, :edit]
 
     def index
@@ -9,8 +9,8 @@ class PostsController < ApplicationController
     end
 
     def show
-        # NOTE This is needed in order for `app/views/comments/_form.html.erb` to use `@comment`.
-        # NOTE Using `@comment = @post.comments.build` did not work. This was becuase `<%= render "comments/form" %>` was being rendered before `<%= render @post.comments %>` in `app/views/posts/show.html.erb`.
+        # NOTE COMMENT This is needed in order for `app/views/comments/_form.html.erb` to use `@comment`.
+        # NOTE COMMENT Using `@comment = @post.comments.build` did not work. This was becuase `<%= render "comments/form" %>` was being rendered before `<%= render @post.comments %>` in `app/views/posts/show.html.erb`.
         @comment = Comment.new(post: @post)
     end
 

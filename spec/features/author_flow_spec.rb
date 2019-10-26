@@ -76,7 +76,7 @@ RSpec.feature "AuthorFlows", type: :feature do
     end
   end
 
-  # NOTE added `js: true` to ensure that the selenium driver uses javascript.   
+  # NOTE TEST Added `js: true` to ensure that the Selenium Driver uses javascript.
   describe "author creation on new post page", js: true do
     it "has a form to dynamically add a new author" do
       visit new_post_path

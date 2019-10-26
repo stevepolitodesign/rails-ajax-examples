@@ -20,15 +20,20 @@ An example Rails application that demonstrates how to use AJAX.
 
 # Notes
 
-To see notes that specifically pertain to the examples, run the following command.
+To see notes that specifically pertain to the examples, run the following commands.
 
-1. `rails notes -a=NOTE`
+1. `rails notes -a="NOTE COMMENT"` or `rails notes -a="NOTE AUTHOR"`
+
+To see all notes, run the following command.
+
+1. `rails notes -a="NOTE"`
 
 # Tests
 
 Because the application is testing AJAX, you'll need to have [Selenium Driver](https://github.com/teamcapybara/capybara#selenium) installed.
 
 1. `rspec`
+
 
 # Specs
 

@@ -13,6 +13,7 @@
         <h4 class="mb-0">Add A Comment:</h4>
     </div>
     <div class="card-body">
+        <%# NOTE COMMENT Load the comment form. %>
         <%= render "comments/form" %>
     </div>
 </div>
@@ -20,7 +21,7 @@
     <div class="card-header">
         <h4>Comments:</h4>
     </div>
-    <%# NOTE I wrap the comments in `<div id="comments">`` so that I can select the wrapper when using javascript in `app/views/comments/create.js.erb`. %>
+    <%# NOTE COMMENT Wrap the comments in `<div id="comments">` so that you can select the wrapper when using javascript in `app/views/comments/create.js.erb`. %>
     <div id="comments" class="card-body">
         <%= render @post.comments %>
     </div>

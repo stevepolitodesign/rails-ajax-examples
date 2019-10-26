@@ -37,7 +37,7 @@ RSpec.feature "CommentFlows", type: :feature do
     end
   end
 
-  # NOTE added `js: true` to ensure that the selenium driver uses javascript.   
+  # NOTE TEST Added `js: true` to ensure that the Selenium Driver uses javascript.
   describe "comment creation", js: true do
     let!(:post) { FactoryBot.create(:post) }
     comment_body = "Here is a new comment posted with AJAX"

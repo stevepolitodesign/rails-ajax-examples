@@ -14,7 +14,7 @@
     </div>
     <div class="btn-group">
         <%= f.submit class: "btn btn-success" %>
-        <%# NOTE only show the delete button on the edit page. Otherwise it would appear when adding a new post %>
+        <%# NOTE Only show the delete button on the edit page. Otherwise it would appear when adding a new post. %>
         <% if params[:action] == 'edit' %>
             <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"  %>
         <% end %>

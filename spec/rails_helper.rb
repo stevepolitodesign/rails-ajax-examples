@@ -57,13 +57,13 @@ RSpec.configure do |config|
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   
-  # NOTE Need to load this in order to use the `truncate` method provided by Rails
+  # NOTE TEST Need to load this in order to use the `truncate` method provided by Rails
   config.include ActionView::Helpers::TextHelper
 
-  # NOTE Need to load this in order to use the `time_ago_in_words` method provided by Rails
+  # NOTE TEST Need to load this in order to use the `time_ago_in_words` method provided by Rails
   config.include ActionView::Helpers::DateHelper 
   
-  # NOTE Load Custom Helpers
+  # NOTE TEST Load Custom Helpers
   config.include PostHelper
 
   # arbitrary gems may also be filtered via:

@@ -18,9 +18,11 @@ class AuthorsController < ApplicationController
         respond_to do |format|
             if @author.save
                 format.html { redirect_to @author, notice: "#{@author.formatted_name} was successfully saved." }
+                # NOTE AUTHOR This will run the code in `app/views/comments/create.js.erb`.
                 format.js
             else
                 format.html { render 'new' }
+                # NOTE AUTHOR This will run the code in `app/views/comments/create.js.erb`.
                 format.js
             end
         end

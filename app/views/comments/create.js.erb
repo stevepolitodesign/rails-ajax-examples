@@ -1,13 +1,13 @@
 <% if @comment.errors.any? %>
-    <%# NOTE this removes any error messages that were previously generated. %>
+    <%# NOTE COMMENT This removes any error messages that were previously generated. %>
     document.querySelector('#error_explanation') ? document.querySelector('#error_explanation').remove() : null ;
-    <%# NOTE this selects the `<form>` in `app/views/posts/show.html.erb` and dynamically injects the `app/views/shared/_validation-messages.html.erb` partial. %>
+    <%# NOTE COMMENT This selects the `<form>` in `app/views/posts/show.html.erb` and dynamically injects the `app/views/shared/_validation-messages.html.erb` partial. %>
     document.querySelector('#comments-form').insertAdjacentHTML('afterbegin', '<%= escape_javascript(render "shared/validation-messages", object: @comment) %>');
 <% else %>
-    <%# NOTE this removes any error messages that were previously generated. %>
+    <%# NOTE COMMENT This removes any error messages that were previously generated. %>
     document.querySelector('#error_explanation') ? document.querySelector('#error_explanation').remove() : null ;
-    <%# NOTE this selects `<div id="comments">` in `app/views/posts/show.html.erb` and dynamically injects the `app/views/comments/_comment.html.erb` partial. %>
+    <%# NOTE COMMENT This selects `<div id="comments">` in `app/views/posts/show.html.erb` and dynamically injects the `app/views/comments/_comment.html.erb` partial. %>
     document.querySelector('#comments').insertAdjacentHTML('afterbegin', '<%= escape_javascript(render @comment) %>') ;
-    <%# NOTE this selects the `<form>` in `app/views/posts/show.html.erb` and resets the text area. %>
+    <%# NOTE COMMENT This selects the `<form>` in `app/views/posts/show.html.erb` and resets the text area. %>
     document.querySelector('#comments-form').reset();
 <% end %>
