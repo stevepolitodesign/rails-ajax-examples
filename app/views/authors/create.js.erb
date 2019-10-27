@@ -10,6 +10,6 @@
     document.querySelector("select#post_author_id option[selected='selected']") ? document.querySelector("select#post_author_id option[selected='selected']").removeAttribute('selected') : null ;
     <%# NOTE AUTHOR STEP 4: This dynamically adds the newly created author into the author select list, and sets them to be selected. %>
     document.querySelector('select#post_author_id').insertAdjacentHTML('afterbegin', '<option value="<%= @author.id %>" selected="selected" ><%= @author.formatted_name %></option>') ;
-    <%# NOTE AUTHOR STEP 4: This selects the new author `<form>` in `app/views/posts/new.html.erb` and `app/views/posts/edit.html.erb` and resets the text area. %>
+    <%# NOTE AUTHOR STEP 4: This selects the new author `<form>` in `app/views/posts/new.html.erb` and `app/views/posts/edit.html.erb` and resets the fields. %>
     document.querySelector('#author_form').reset();
 <%  end %>
